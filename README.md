@@ -1,6 +1,6 @@
 ## 🛍️ E-Commerce Product Listing App
 
-A feature-rich Flutter shopping app built for Qtec Solution Limited that demonstrates product listing, pagination, search, sorting, and optional offline support using BLoC state management and Clean Architecture.
+A feature-rich Flutter shopping app built for Qtec Solution Limited that demonstrates product listing, pagination, search, sorting, and offline support using BLoC state management and Clean Architecture.
 
 ## 🚀 Features
 🛒 Product List </br>
