@@ -22,4 +22,3 @@ class ToggleFavorite extends ProductEvent {
   ToggleFavorite({required this.productId, required this.isFavorite});
 }
 
-enum SortOption { priceLowHigh, priceHighLow, rating }

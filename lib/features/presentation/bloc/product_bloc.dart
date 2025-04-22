@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 
 import '../../../core/constants/strings.dart';
+import '../../../core/utils/sort_option.dart';
 import '../../domain/entities/product.dart';
 import '../../domain/usecases/get_products.dart';
 import '../../domain/repositories/product_repository.dart';
