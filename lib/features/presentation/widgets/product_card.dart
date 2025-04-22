@@ -1,7 +1,10 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../core/constants/strings.dart';
 import '../../domain/entities/product.dart';
 import '../bloc/product_bloc.dart';
 
@@ -12,6 +15,8 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
     return Padding(
       padding: const EdgeInsets.all(8),
       child: Column(
@@ -19,15 +24,16 @@ class ProductCard extends StatelessWidget {
         children: [
           Stack(
             children: [
+
               Container(
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),  // Ensure the image also has rounded corners
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   child: CachedNetworkImage(
-                    imageUrl: product.image,  // Make sure to pass the URL to imageUrl
+                    imageUrl: product.image,
                     height: 150,
                     width: double.infinity,
                     fit: BoxFit.cover,
@@ -41,11 +47,10 @@ class ProductCard extends StatelessWidget {
                 right: 8,
                 child: InkWell(
                   onTap: () {
-                    // Ensure the product.id and product.isFavorite are accessible and valid
                     context.read<ProductBloc>().add(
                       ToggleFavorite(
-                        productId: product.id, // Ensure it's an int
-                        isFavorite: !product.isFavorite, // Toggle the favorite status
+                        productId: product.id,
+                        isFavorite: !product.isFavorite,
                       ),
                     );
                   },
@@ -57,7 +62,25 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+
+              if (product.isOutOfStock)
+              Positioned(
+                top: 8, left: 8, child: Container(
+                padding: const EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  color: Colors.redAccent,
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  AppString.outOfStock,
+                  style: GoogleFonts.inter(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                ),
+              ))
 
             ],
           ),
@@ -123,7 +146,7 @@ class ProductCard extends StatelessWidget {
 
               const SizedBox(width: 4),
               Text(
-                product.rating!.rate.toStringAsFixed(1),  // Ensure rating is a double
+                product.rating!.rate.toStringAsFixed(1),
                 style: GoogleFonts.inter(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
@@ -131,7 +154,7 @@ class ProductCard extends StatelessWidget {
               ),
               const SizedBox(width: 4),
               Text(
-                '(${product.ratingCount})',  // Ensure ratingCount is an int
+                '(${product.ratingCount})',
                 style: GoogleFonts.inter(
                   fontSize: 12,
                   fontWeight: FontWeight.w500,
