@@ -21,3 +21,11 @@ A feature-rich Flutter shopping app built for Qtec Solution Limited that demonst
 💾 SQLite (for caching)</br>
 📶 Connectivity Plus (network status)</br>
 🏗️ Clean Architecture Pattern</br>
+## 🌟 Screenshots
+
+<div align="center">
+  <img src="screenshots/screenshot_1.png" alt="Home" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/screenshot_2.png" alt="Search" width="20%"> &nbsp;&nbsp;&nbsp;
+  <img src="screenshots/screenshot_3.png" alt="Filter" width="20%">
+</div>
+</br>
